@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ghulam Haider & Muhammad Irfan Landscaping LLC | Premium Landscaping & Swimming Pool Construction Dubai</title>
+  <meta name="description" content="Leading landscaping company in Dubai. Ghulam Haider & Muhammad Irfan Landscaping LLC provides luxury villa garden landscaping, swimming pool construction, artificial grass, pergolas, and garden maintenance across Dubai, UAE. Contact: +971 55 758 7121." />
+  <meta name="keywords" content="Landscaping company Dubai, Landscaping services Dubai, Garden landscaping Dubai, Villa landscaping Dubai, Swimming pool construction Dubai, Swimming pool maintenance Dubai, Artificial grass Dubai, Pergola Dubai, Garden maintenance Dubai, Outdoor living Dubai, Landscape design Dubai, Ghulam Haider, Muhammad Irfan" />
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌿</text></svg>" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              dark: '#082218',
+              emerald: '#0C2D20',
+              medium: '#154734',
+              accent: '#237053',
+              gold: '#C5A059',
+              goldLight: '#E8D49E',
+              cream: '#F7FAF7',
+              sand: '#F2EFEB'
+            }
+          },
+          fontFamily: {
+            heading: ['Playfair Display', 'serif'],
+            cinzel: ['Cinzel', 'serif'],
+            sans: ['Plus Jakarta Sans', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- React & ReactDOM CDN -->
+  <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
+  <!-- Babel Compiler for JSX -->
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #082218;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #C5A059;
+      border-radius: 5px;
+    }
+    .gold-gradient-text {
+      background: linear-gradient(135deg, #E8D49E 0%, #C5A059 50%, #9B7838 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .gold-gradient-bg {
+      background: linear-gradient(135deg, #C5A059 0%, #A47F3B 100%);
+    }
+    .dark-glass {
+      background: rgba(12, 45, 32, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+    .hover-gold-glow:hover {
+      box-shadow: 0 10px 30px -10px rgba(197, 160, 89, 0.4);
+      transform: translateY(-3px);
+    }
+  </style>
+
+  <!-- Local Schema.org Markup -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LandscapeService",
+    "name": "Ghulam Haider & Muhammad Irfan Landscaping LLC",
+    "image": "/images/hero_dubai_villa.jpg",
+    "telephone": "+971557587121",
+    "priceRange": "$$$",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Dubai",
+      "addressCountry": "AE"
+    },
+    "url": "https://ghmlandscaping.ae",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+971557587121",
+      "contactType": "customer service",
+      "name": "Imtiaz Hussain"
+    },
+    "areaServed": [
+      "Dubai", "Palm Jumeirah", "Emirates Hills", "Dubai Hills Estate", "Arabian Ranches", "Jumeirah Golf Estates", "Al Barari"
+    ]
+  }
+  </script>
+</head>
+<body class="bg-brand-cream text-gray-900 font-sans selection:bg-brand-gold selection:text-brand-dark overflow-x-hidden">
+
+  <div id="root"></div>
+
+  <script type="text/babel">
+    const { useState, useEffect } = React;
+
+    const whatsappUrl = "https://wa.me/971557587121?text=Hello%2C%20I%20would%20like%20to%20get%20a%20quotation%20for%20landscaping%20services%20in%20Dubai.";
+
+    // Navbar Component
+    function Navbar() {
+      const [isScrolled, setIsScrolled] = useState(false);
+      const [mobileOpen, setMobileOpen] = useState(false);
+
+      useEffect(() => {
+        const handleScroll = () => setIsScrolled(window.scrollY > 40);
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+      }, []);
+
+      const links = [
+        { name: 'Home', href: '#home' },
+        { name: 'About Us', href: '#about' },
+        { name: 'Services', href: '#services' },
+        { name: 'Projects', href: '#projects' },
+        { name: 'Before & After', href: '#before-after' },
+        { name: 'Gallery', href: '#gallery' },
+        { name: 'Reviews', href: '#reviews' },
+        { name: 'Contact', href: '#contact' }
+      ];
+
+      return (
+        <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+          <div className="bg-brand-dark text-gray-200 text-xs sm:text-sm py-2 px-4 border-b border-brand-emerald/50">
+            <div className="max-w-7xl mx-auto flex justify-between items-center">
+              <div className="flex items-center space-x-2">
+                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                <span>Licensed UAE Landscaping & Swimming Pool Contractor • Dubai</span>
+              </div>
+              <div className="hidden sm:block text-xs text-brand-gold font-medium">
+                Commercial & Villa Contracting
+              </div>
+            </div>
+          </div>
+
+          <nav className={`transition-all duration-300 ${isScrolled ? 'dark-glass shadow-2xl py-3 border-b border-brand-gold/20' : 'bg-brand-emerald/95 backdrop-blur-md py-4 border-b border-white/10'}`}>
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
+              <a href="#home" className="flex items-center space-x-3">
+                <div className="w-10 h-10 rounded-lg gold-gradient-bg flex items-center justify-center font-bold text-brand-dark shadow-md text-lg flex-shrink-0">
+                  🌿
+                </div>
+                <div>
+                  <span className="font-cinzel text-base sm:text-lg font-bold text-white block leading-tight">
+                    Ghulam Haider & Muhammad Irfan
+                  </span>
+                  <span className="text-[10px] uppercase tracking-widest text-brand-gold font-medium block">
+                    Landscaping LLC • Dubai
+                  </span>
+                </div>
+              </a>
+
+              <div className="hidden lg:flex items-center space-x-7 text-sm font-medium text-gray-200">
+                {links.map((l) => (
+                  <a key={l.name} href={l.href} className="hover:text-brand-gold transition-colors">{l.name}</a>
+                ))}
+              </div>
+
+              <button onClick={() => setMobileOpen(!mobileOpen)} className="lg:hidden text-white p-2">
+                ☰
+              </button>
+            </div>
+
+            {mobileOpen && (
+              <div className="lg:hidden bg-brand-dark p-4 space-y-3 border-b border-brand-gold/20">
+                {links.map((l) => (
+                  <a key={l.name} href={l.href} onClick={() => setMobileOpen(false)} className="block text-gray-200 hover:text-brand-gold py-2 border-b border-white/5">
+                    {l.name}
+                  </a>
+                ))}
+              </div>
+            )}
+          </nav>
+        </header>
+      );
+    }
+
+    // Hero Component
+    function Hero() {
+      return (
+        <section id="home" className="relative min-h-screen flex items-center pt-32 pb-20 bg-brand-dark overflow-hidden">
+          <div className="absolute inset-0 z-0">
+            <video autoPlay loop muted playsInline poster="./public/images/hero_dubai_villa.jpg" className="w-full h-full object-cover">
+              <source src="https://assets.mixkit.co/videos/preview/mixkit-modern-luxury-villa-with-swimming-pool-41484-large.mp4" type="video/mp4" />
+              <img src="./public/images/hero_dubai_villa.jpg" alt="Dubai Villa Landscaping" className="w-full h-full object-cover" />
+            </video>
+            <div className="absolute inset-0 bg-gradient-to-r from-brand-dark/95 via-brand-dark/85 to-brand-dark/65"></div>
+            <div className="absolute inset-0 bg-gradient-to-t from-brand-dark via-transparent to-brand-dark/70"></div>
+          </div>
+
+          <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+            <div className="max-w-3xl space-y-6">
+              <div className="inline-block bg-brand-emerald/80 border border-brand-gold/40 rounded-full px-4 py-1 text-xs font-semibold text-brand-gold uppercase tracking-wider">
+                Professional Landscaping Solutions • Dubai, UAE
+              </div>
+
+              <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white font-heading leading-tight">
+                Premium Landscaping & <span className="gold-gradient-text">Outdoor Solutions</span> in Dubai
+              </h1>
+
+              <p className="text-base sm:text-xl text-gray-200 font-light leading-relaxed">
+                Transforming Villas, Gardens and Outdoor Spaces with Professional Landscaping, Pool and Outdoor Living Solutions. Delivered with engineering excellence across Dubai.
+              </p>
+
+              <div className="pt-4 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+                <a href="#contact" className="gold-gradient-bg text-brand-dark font-bold text-base px-8 py-4 rounded-lg shadow-xl text-center hover-gold-glow">
+                  Get Free Quote
+                </a>
+                <a href="tel:+971557587121" className="bg-white/10 text-white font-medium text-base px-6 py-4 rounded-lg text-center border border-white/20">
+                  Call +971 55 758 7121
+                </a>
+              </div>
+
+              <div className="pt-6 border-t border-white/15 flex items-center space-x-4">
+                <div className="w-12 h-12 rounded-full gold-gradient-bg flex items-center justify-center text-brand-dark font-bold text-lg font-heading">
+                  GH
+                </div>
+                <div>
+                  <div className="text-white font-bold text-sm">Ghulam Haider & Muhammad Irfan Landscaping LLC</div>
+                  <div className="text-xs text-brand-gold">Representative: Imtiaz Hussain (+971 55 758 7121) • Dubai, UAE</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      );
+    }
+
+    // TrustStats Component
+    function TrustStats() {
+      const stats = [
+        { val: "100+", title: "Projects Completed", sub: "Villas & Pools across Dubai" },
+        { val: "Professional", title: "UAE Licensed Service", sub: "Engineered Construction Standards" },
+        { val: "Dubai Based", title: "Local Experience", sub: "Palm, Hills, Ranches & More" },
+        { val: "100%", title: "Satisfaction Focus", sub: "Dedicated Aftercare & Support" }
+      ];
+      return (
+        <section className="py-12 bg-brand-dark border-y border-white/10 text-white">
+          <div className="max-w-7xl mx-auto px-4 grid grid-cols-2 lg:grid-cols-4 gap-6 text-center">
+            {stats.map((s, i) => (
+              <div key={i} className="space-y-1">
+                <div className="text-2xl sm:text-4xl font-extrabold gold-gradient-text font-heading">{s.val}</div>
+                <div className="text-xs sm:text-sm font-bold text-gray-200 uppercase">{s.title}</div>
+                <div className="text-[11px] text-gray-400">{s.sub}</div>
+              </div>
+            ))}
+          </div>
+        </section>
+      );
+    }
+
+    // About Component
+    function About() {
+      const pillars = [
+        "Professional Workmanship", "Quality Materials", "Experienced Team",
+        "Reliable Service", "Customized Solutions", "Customer Satisfaction",
+        "Long-Term Maintenance Support"
+      ];
+      return (
+        <section id="about" className="py-20 bg-brand-cream">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-white">
+                <img src="./public/images/service_landscape_design.jpg" alt="Villa Landscape" className="w-full h-[450px] object-cover" />
+                <div className="absolute bottom-6 left-6 right-6 dark-glass p-4 rounded-xl text-white">
+                  <div className="font-bold text-base">100+ Luxury Projects Delivered in Dubai</div>
+                  <div className="text-xs text-gray-300">Villas, Pools & Commercial Landscaping</div>
+                </div>
+              </div>
+
+              <div className="space-y-6">
+                <div className="text-xs font-bold uppercase tracking-wider text-brand-emerald">About Us</div>
+                <h2 className="text-3xl sm:text-4xl font-extrabold text-brand-dark font-heading">
+                  Ghulam Haider & Muhammad Irfan <span className="gold-gradient-text">Landscaping LLC</span>
+                </h2>
+                <p className="text-gray-700 text-sm sm:text-base leading-relaxed">
+                  We provide landscaping and outdoor solutions for residential and commercial clients in Dubai under the direct representation of <strong>Imtiaz Hussain</strong>. Built with engineering precision and UAE experience.
+                </p>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-2">
+                  {pillars.map((p, i) => (
+                    <div key={i} className="flex items-center space-x-2 text-xs sm:text-sm font-semibold text-gray-800">
+                      <span className="text-brand-emerald">✓</span>
+                      <span>{p}</span>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="pt-4 flex items-center space-x-4">
+                  <a href="tel:+971557587121" className="gold-gradient-bg text-brand-dark font-bold text-sm px-6 py-3.5 rounded-lg shadow-lg">
+                    Talk to Our Team (+971 55 758 7121)
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      );
+    }
+
+    // Services Component (9 Core Services)
+    function Services() {
+      const services = [
+        { id: 1, title: "1. Landscape Design & Installation", img: "./public/images/service_landscape_design.jpg", desc: "Villa gardens, complete landscape design and installation." },
+        { id: 2, title: "2. Garden Maintenance", img: "./public/images/service_garden_maintenance.jpg", desc: "Regular garden maintenance and professional landscape care." },
+        { id: 3, title: "3. Swimming Pool Construction", img: "./public/images/service_pool_construction.jpg", desc: "Swimming pool construction and complete pool solutions." },
+        { id: 4, title: "4. Swimming Pool Maintenance", img: "https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?auto=format&fit=crop&w=1600&q=90", desc: "Professional pool cleaning, maintenance and servicing." },
+        { id: 5, title: "5. Artificial Grass", img: "./public/images/service_artificial_grass.jpg", desc: "Premium artificial grass installation for villas and outdoor areas." },
+        { id: 6, title: "6. Pergolas & Outdoor Structures", img: "./public/images/service_pergola.jpg", desc: "Modern pergolas and shaded outdoor living spaces." },
+        { id: 7, title: "7. Outdoor Living", img: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=90", desc: "Complete outdoor living areas for villas and residential properties." },
+        { id: 8, title: "8. Garden Lighting", img: "https://images.unsplash.com/photo-1507089947368-19c1da9775ae?auto=format&fit=crop&w=1600&q=90", desc: "Decorative and functional outdoor lighting solutions." },
+        { id: 9, title: "9. Villa Garden Design", img: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1600&q=90", desc: "Customized landscaping designs specifically for UAE villas." }
+      ];
+
+      return (
+        <section id="services" className="py-20 bg-brand-dark text-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
+              <span className="text-xs font-bold text-brand-gold uppercase tracking-wider">Ghulam Haider & Muhammad Irfan Landscaping LLC</span>
+              <h2 className="text-3xl sm:text-5xl font-extrabold font-heading">
+                Our 9 Core <span className="gold-gradient-text">Landscaping & Pool Services</span>
+              </h2>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {services.map((s) => (
+                <div key={s.id} className="bg-brand-emerald/40 border border-white/10 rounded-2xl overflow-hidden shadow-xl flex flex-col justify-between p-6 space-y-4">
+                  <img src={s.img} alt={s.title} loading="lazy" className="w-full h-48 object-cover rounded-xl" />
+                  <h3 className="text-lg font-bold font-heading text-white">{s.title}</h3>
+                  <p className="text-gray-300 text-xs sm:text-sm font-light leading-relaxed">{s.desc}</p>
+                  <div className="pt-2 border-t border-white/10">
+                    <a href="#contact" className="block w-full gold-gradient-bg text-brand-dark text-xs font-bold py-2.5 text-center rounded-lg">
+                      Get Quote
+                    </a>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      );
+    }
+
+    // Why Choose Us Component
+    function WhyChooseUs() {
+      const items = [
+        "Quality Workmanship", "Experienced Team", "Premium Materials", "Customized Solutions",
+        "Reliable Service", "Competitive Pricing", "Fast Response", "Customer Satisfaction"
+      ];
+
+      return (
+        <section className="py-20 bg-brand-cream">
+          <div className="max-w-7xl mx-auto px-4 text-center">
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-brand-dark font-heading mb-12">
+              Why Choose <span className="gold-gradient-text">Ghulam Haider & Muhammad Irfan Landscaping LLC?</span>
+            </h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              {items.map((it, idx) => (
+                <div key={idx} className="bg-white p-6 rounded-2xl border border-gray-200 shadow-md text-left">
+                  <div className="w-10 h-10 gold-gradient-bg rounded-lg flex items-center justify-center font-bold text-brand-dark mb-3">✓</div>
+                  <h3 className="font-bold text-brand-dark text-base">{it}</h3>
+                  <p className="text-xs text-gray-600 mt-1">Delivered with high engineering standards across Dubai, UAE.</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      );
+    }
+
+    // Official Client-Provided Before & After Component (High Quality Presentation)
+    function BeforeAfter() {
+      return (
+        <section id="before-after" className="py-16 sm:py-20 bg-brand-dark text-white relative overflow-hidden">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center max-w-3xl mx-auto space-y-3 sm:space-y-4 mb-10 sm:mb-14">
+              <div className="inline-block bg-brand-gold/15 border border-brand-gold/30 rounded-full px-4 py-1 text-xs font-bold text-brand-gold uppercase tracking-wider">
+                Proven Site Transformation
+              </div>
+              <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-white font-heading">
+                Before & After <span className="gold-gradient-text">Project Transformations</span>
+              </h2>
+              <p className="text-gray-300 text-sm sm:text-base font-light">
+                Real side-by-side villa garden transformations completed by Ghulam Haider & Muhammad Irfan Landscaping LLC in Dubai.
+              </p>
+            </div>
+
+            <div className="max-w-5xl mx-auto">
+              <div className="bg-brand-emerald/40 border border-brand-gold/30 rounded-2xl sm:rounded-3xl p-3 sm:p-6 shadow-2xl">
+                <div className="relative rounded-xl sm:rounded-2xl overflow-hidden border border-white/20 shadow-2xl bg-black">
+                  <img
+                    src="./public/images/user_before_after_official.jpg"
+                    alt="Real Dubai Villa Landscaping Before and After Transformation"
+                    className="w-full h-auto object-contain max-h-[650px] mx-auto block"
+                  />
+                </div>
+
+                <div className="mt-4 sm:mt-6 flex flex-col md:flex-row justify-between items-start md:items-center gap-4 bg-brand-dark/90 p-4 sm:p-5 rounded-xl border border-white/10 text-left">
+                  <div>
+                    <h3 className="text-base sm:text-lg font-bold text-white font-heading">
+                      Real Dubai Villa Landscaping Transformation
+                    </h3>
+                    <p className="text-gray-300 text-xs sm:text-sm font-light mt-1">
+                      Complete ground preparation, synthetic turf installation, stone stepping pathways, planter beds, and ambient LED wall lighting.
+                    </p>
+                  </div>
+                  <a
+                    href="#contact"
+                    className="gold-gradient-bg text-brand-dark text-xs sm:text-sm font-bold py-3 px-6 rounded-lg flex-shrink-0 w-full md:w-auto text-center"
+                  >
+                    Get Free Quote for Your Villa
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      );
+    }
+
+    // Featured Projects Component
+    function Projects() {
+      const list = [
+        { title: "Emirates Hills Villa Landscape & Pool", img: "./public/images/hero_dubai_villa.jpg", loc: "Emirates Hills, Dubai" },
+        { title: "Palm Jumeirah Resort Infinity Pool", img: "./public/images/service_pool_construction.jpg", loc: "Palm Jumeirah, Dubai" },
+        { title: "Dubai Hills Estate Louvered Pergola", img: "./public/images/service_pergola.jpg", loc: "Dubai Hills, Dubai" },
+        { title: "Arabian Ranches Softscape Garden", img: "./public/images/service_landscape_design.jpg", loc: "Arabian Ranches, Dubai" },
+        { title: "Jumeirah Golf Estates Turf Lawn", img: "./public/images/service_artificial_grass.jpg", loc: "Jumeirah Golf Estates" },
+        { title: "Al Barari Commercial Landscape Care", img: "./public/images/service_garden_maintenance.jpg", loc: "Al Barari, Dubai" }
+      ];
+
+      return (
+        <section id="projects" className="py-20 bg-brand-cream">
+          <div className="max-w-7xl mx-auto px-4 text-center">
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-brand-dark font-heading mb-12">
+              Featured <span className="gold-gradient-text">Projects in Dubai</span>
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {list.map((p, i) => (
+                <div key={i} className="bg-white rounded-2xl overflow-hidden border border-gray-200 shadow-lg text-left bg-black">
+                  <img src={p.img} alt={p.title} loading="lazy" className="w-full h-56 object-cover" />
+                  <div className="p-6 space-y-2 bg-white">
+                    <span className="text-xs font-bold text-brand-emerald uppercase">{p.loc}</span>
+                    <h3 className="font-bold text-lg text-brand-dark font-heading">{p.title}</h3>
+                    <a href="#contact" className="inline-block gold-gradient-bg text-brand-dark text-xs font-bold py-2 px-4 rounded mt-2">
+                      View Project
+                    </a>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      );
+    }
+
+    // Testimonials Component
+    function Testimonials() {
+      const reviews = [
+        { text: "Excellent landscaping work. The team completely transformed our villa garden and the finishing quality was very good.", author: "Rashid Al-Maktoum", loc: "Palm Jumeirah Client" },
+        { text: "Professional team, good communication and excellent workmanship. Highly recommended.", author: "David & Sarah", loc: "Emirates Hills Resident" },
+        { text: "Very happy with the garden transformation and outdoor landscaping.", author: "Tariq Mansoor", loc: "Dubai Hills Client" }
+      ];
+
+      return (
+        <section id="reviews" className="py-20 bg-brand-dark text-white">
+          <div className="max-w-7xl mx-auto px-4 text-center">
+            <h2 className="text-3xl sm:text-4xl font-extrabold font-heading mb-12">
+              Customer <span className="gold-gradient-text">Testimonials</span>
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {reviews.map((r, i) => (
+                <div key={i} className="bg-brand-emerald/40 border border-white/10 p-6 rounded-2xl text-left space-y-4">
+                  <div className="text-brand-gold">★★★★★</div>
+                  <p className="text-xs sm:text-sm text-gray-200 italic font-light">"{r.text}"</p>
+                  <div className="pt-2 border-t border-white/10">
+                    <div className="font-bold text-sm">{r.author}</div>
+                    <div className="text-xs text-brand-gold">{r.loc}</div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      );
+    }
+
+    // Full HD Gallery Component
+    function Gallery() {
+      const items = [
+        { title: "Emirates Hills Infinity Pool", img: "./public/images/hero_dubai_villa.jpg", cat: "Swimming Pools" },
+        { title: "Palm Jumeirah Resort Pool", img: "./public/images/service_pool_construction.jpg", cat: "Swimming Pools" },
+        { title: "Motorized Louvered Pergola Lounge", img: "./public/images/service_pergola.jpg", cat: "Pergolas" },
+        { title: "Villa Softscape Garden & Walkway", img: "./public/images/service_landscape_design.jpg", cat: "Villa Landscaping" },
+        { title: "Synthetic Artificial Turf Lawn", img: "./public/images/service_artificial_grass.jpg", cat: "Artificial Grass" },
+        { title: "Professional Lawn & Tree Care", img: "./public/images/service_garden_maintenance.jpg", cat: "Gardens" },
+        { title: "Modern Outdoor Decking & Lounge", img: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=90", cat: "Outdoor Living" },
+        { title: "Architectural Garden Night Lighting", img: "https://images.unsplash.com/photo-1507089947368-19c1da9775ae?auto=format&fit=crop&w=1600&q=90", cat: "Lighting" }
+      ];
+
+      return (
+        <section id="gallery" className="py-20 bg-brand-cream">
+          <div className="max-w-7xl mx-auto px-4 text-center">
+            <h2 className="text-3xl sm:text-5xl font-extrabold text-brand-dark font-heading mb-12">
+              Our Full HD <span className="gold-gradient-text">Project Gallery</span>
+            </h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              {items.map((item, idx) => (
+                <div key={idx} className="bg-brand-dark rounded-2xl overflow-hidden shadow-lg border border-gray-200 h-72 relative group bg-black">
+                  <img src={item.img} alt={item.title} loading="lazy" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/90 via-transparent to-transparent flex flex-col justify-end p-4 text-left">
+                    <span className="text-[10px] font-bold uppercase text-brand-gold">{item.cat}</span>
+                    <h3 className="text-sm font-bold text-white font-heading">{item.title}</h3>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      );
+    }
+
+    // Contact Form Component
+    function Contact() {
+      const [submitted, setSubmitted] = useState(false);
+      return (
+        <section id="contact" className="py-20 bg-brand-cream">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+              <div className="lg:col-span-5 bg-brand-dark text-white p-8 rounded-3xl space-y-6">
+                <h3 className="text-2xl font-bold font-heading">Ghulam Haider & Muhammad Irfan Landscaping LLC</h3>
+                <div className="text-sm space-y-2 text-gray-300">
+                  <div>Representative: <strong className="text-white">Imtiaz Hussain</strong></div>
+                  <div>Phone / WhatsApp: <a href="tel:+971557587121" className="text-brand-gold font-bold underline">+971 55 758 7121</a></div>
+                  <div>Location: Dubai, UAE</div>
+                </div>
+                <div className="space-y-3 pt-4 border-t border-white/10">
+                  <a href={whatsappUrl} target="_blank" className="block w-full bg-[#25D366] text-white font-bold py-3 text-center rounded-lg">
+                    WhatsApp Us (+971 55 758 7121)
+                  </a>
+                  <a href="tel:+971557587121" className="block w-full bg-white/10 text-white font-bold py-3 text-center rounded-lg border border-white/20">
+                    Call Now
+                  </a>
+                </div>
+              </div>
+
+              <div className="lg:col-span-7 bg-white p-8 rounded-3xl border border-gray-200 shadow-xl">
+                {submitted ? (
+                  <div className="text-center py-12 text-emerald-700 font-bold text-xl">
+                    Thank you! Request submitted.
+                  </div>
+                ) : (
+                  <form onSubmit={(e) => { e.preventDefault(); setSubmitted(true); }} className="space-y-4">
+                    <h3 className="text-xl font-bold text-brand-dark font-heading">Request a Free Quote</h3>
+                    <input type="text" required placeholder="Full Name *" className="w-full p-3 border border-gray-300 rounded-lg text-sm" />
+                    <input type="tel" required placeholder="Phone Number *" className="w-full p-3 border border-gray-300 rounded-lg text-sm" />
+                    <input type="email" placeholder="Email Address" className="w-full p-3 border border-gray-300 rounded-lg text-sm" />
+                    <select className="w-full p-3 border border-gray-300 rounded-lg text-sm">
+                      <option>Landscape Design & Installation</option>
+                      <option>Swimming Pool Construction</option>
+                      <option>Garden Maintenance</option>
+                      <option>Artificial Grass</option>
+                      <option>Pergolas & Outdoor Living</option>
+                    </select>
+                    <textarea rows="3" placeholder="Project message / location details..." className="w-full p-3 border border-gray-300 rounded-lg text-sm"></textarea>
+                    <button type="submit" className="w-full gold-gradient-bg text-brand-dark font-bold py-3.5 rounded-lg shadow-lg">
+                      Request a Free Quote
+                    </button>
+                  </form>
+                )}
+              </div>
+            </div>
+          </div>
+        </section>
+      );
+    }
+
+    // Main App Component
+    function App() {
+      return (
+        <div>
+          <Navbar />
+          <Hero />
+          <TrustStats />
+          <About />
+          <Services />
+          <WhyChooseUs />
+          <Projects />
+          <BeforeAfter />
+          <Gallery />
+          <Testimonials />
+          <Contact />
+          
+          <footer className="bg-brand-dark text-gray-400 py-8 text-center text-xs border-t border-white/10">
+            © 2026 Ghulam Haider & Muhammad Irfan Landscaping LLC. Contact: +971 55 758 7121 • Dubai, UAE.
+          </footer>
+
+          {/* Official Standard WhatsApp Logo Floating Button */}
+          <a
+            href={whatsappUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="fixed bottom-6 right-6 w-14 h-14 bg-[#25D366] hover:bg-[#20ba5a] text-white rounded-full flex items-center justify-center shadow-2xl z-50 border-2 border-white hover:scale-110 transition-transform"
+            aria-label="Chat on WhatsApp"
+            title="Chat on WhatsApp (+971 55 758 7121)"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" className="w-7 h-7 fill-current">
+              <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3 18.6-68.1-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.9-186.6 184.9zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z" />
+            </svg>
+          </a>
+        </div>
+      );
+    }
+
+    ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+  </script>
+</body>
+</html>
